@@ -47,4 +47,34 @@ public class Zoo {
         }
         return -1;
     }
+
+//instr13
+    public boolean removeAnimal(Animal animal) {
+        int index = searchAnimal(animal);
+        if (index != -1) {
+
+            for (int i = index; i < currentCageIndex - 1; i++) {
+                animals[i] = animals[i + 1];
+            }
+            animals[currentCageIndex - 1] = null;
+            currentCageIndex--;
+            nbrAnimal--;
+            return true;
+        }
+        return false;
+    }
+
+    //instr15
+    public boolean isZooFull() {
+        return nbrAnimal >= nbrCages;
+    }
+
+
+    //instr16
+    public static Zoo comparerZoo(Zoo z1, Zoo z2) {
+        return (z1.nbrAnimal > z2.nbrAnimal) ? z1 : z2;
+    }
+
+
+
 }
